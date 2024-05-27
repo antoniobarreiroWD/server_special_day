@@ -8,6 +8,21 @@ const userSchema = new Schema(
       unique: true,
       trim: true,
     },
+    name: {
+      type: String,
+      required: [true, 'A name is needed!'],
+      trim: true,
+    },
+    firstName: {
+      type: String,
+      required: [true, 'A first name is needed!'],
+      trim: true,
+    },
+    lastName: {
+      type: String,
+      required: [true, 'A last name is needed!'],
+      trim: true,
+    },
     email: {
       type: String,
       required: [true, 'An email is needed'],
@@ -23,6 +38,11 @@ const userSchema = new Schema(
     password: {
       salt: { type: String, required: true },
       hash: { type: String, required: true },
+    },
+    role: {
+      type: String,
+      required: [true, 'A role is needed'],
+      enum: ['Admin', 'Guard', 'Pathologist'] 
     },
     
   },

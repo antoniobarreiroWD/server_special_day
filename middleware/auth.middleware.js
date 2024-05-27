@@ -1,17 +1,22 @@
- module.exports = roleMiddleware;
-
-  const usernameMiddleware = (req, res, next) => {
+const roleMiddleware = (requiredRoles) => {
+  return (req, res, next) => {
     try {
       if (!req.user) {
-        return res.sendStatus(401);
+        return res.sendStatus(401); 
       }
-      if (req.user.username !== req.params.username) {
-        return res.sendStatus(403);
+      
+      
+      requiredRoles = Array.isArray(requiredRoles) ? requiredRoles : [requiredRoles];
+
+      if (!requiredRoles.includes(req.user.role)) {
+        return res.sendStatus(403); 
       }
-      next();
+      
+      next(); 
     } catch (err) {
-      next(err);
+      next(err); 
     }
-  }
-  
-  module.exports = usernameMiddleware;
+  };
+};
+
+module.exports = roleMiddleware;
