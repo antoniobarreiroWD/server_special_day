@@ -12,10 +12,6 @@ const signup = async (req, res, next) => {
     const result = await User.create({
       email: req.body.email,
       password: passwordCrypt,
-      username: req.body.username,
-      name: req.body.name,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
       role: req.body.role,
       
     });

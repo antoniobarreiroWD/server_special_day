@@ -4,23 +4,23 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      required: [true, 'A username is needed!'],
+      required: [false, 'A username is needed!'],
       unique: true,
       trim: true,
     },
     name: {
       type: String,
-      required: [true, 'A name is needed!'],
+      required: [false, 'A name is needed!'],
       trim: true,
     },
     firstName: {
       type: String,
-      required: [true, 'A first name is needed!'],
+      required: [false, 'A first name is needed!'],
       trim: true,
     },
     lastName: {
       type: String,
-      required: [true, 'A last name is needed!'],
+      required: [false, 'A last name is needed!'],
       trim: true,
     },
     email: {
@@ -41,8 +41,9 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
-      required: [true, 'A role is needed'],
-      enum: ['Admin', 'Guard', 'Pathologist'] 
+      required: [true, 'Se necesita un rol'],
+      lowercase: true,
+      enum: ['novio', 'novia'] 
     },
     
   },
