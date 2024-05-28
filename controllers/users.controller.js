@@ -20,6 +20,24 @@ const userController = {
                 (error);
 
         }
+    }, 
+
+    updateUser: async (req, res) => {
+        const { userId } = req.params;
+        const updates = req.body;
+        try {
+            let user = await User.findByIdAndUpdate
+                (userId, updates, {
+                    new: true
+                });
+            if (!user) {
+                return res.status(404).send({ message: "User not found." });
+            }
+            res.send(user);
+        } catch (error) {
+            res.status(500).send
+                (error);
+        }
     }
 
 };
