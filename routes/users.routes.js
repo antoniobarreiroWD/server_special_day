@@ -7,4 +7,7 @@ router.get('/:userId', userController.getUser);
 
 router.put('/:userId', userController.updateUser);
 
+
+
+
 module.exports = router;
