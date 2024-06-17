@@ -3,11 +3,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
-const allowedOrigins = [
-  process.env.ORIGIN, 
-  'http://localhost:3000', 
-  'https://front-special-day.vercel.app' 
-];
+const allowedOrigins = ['https://front-special-day.vercel.app', 'http://localhost:3000'];
 
 module.exports = (app) => {
   app.set('trust proxy', 1);
@@ -31,10 +27,7 @@ module.exports = (app) => {
   );
 
  
-  app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://front-special-day.vercel.app');
-    next();
-  });
+
 
   app.use(logger('dev'));
   app.use(express.json());
