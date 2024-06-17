@@ -6,7 +6,7 @@ const cors = require('cors');
 const allowedOrigins = [
   process.env.ORIGIN, 
   'http://localhost:3000', 
-  'https://front-dpl.vercel.app' 
+  'https://front-special-day.vercel.app' 
 ];
 
 module.exports = (app) => {
@@ -32,7 +32,7 @@ module.exports = (app) => {
 
  
   app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000', 'https://front-dpl.vercel.app');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000', 'https://front-special-day.vercel.app');
     next();
   });
 
