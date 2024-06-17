@@ -17,8 +17,8 @@ const specialDaySchema = new mongoose.Schema({
   },
   services: [
     {
-      type: { type: String, trim: true, default: '' },
-      price: { type: Number, min: 0, default: 0 },
+      name: { type: String, trim: true, default: '' },
+      price: { type: Number },
       image: { type: String, trim: true, default: '' },
       status: { type: Boolean, default: true },
     },
